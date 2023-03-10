@@ -5,14 +5,14 @@ services:
       context: ./php-apache
       dockerfile: Dockerfile
     ports:
-      - "127.0.0.1:8888"
+      - "8888:80"
     volumes:
       - type: bind
         source: "./php-apache/000-default.conf"
         target: "/etc/apache2/sites-enabled/000-default.conf"
       - type: bind
         source: "./php-apache/app"
-        target: "/var/www/app"
+        target: "/var/www/docker_review"
     depends_on:
       - review-mysql
 
